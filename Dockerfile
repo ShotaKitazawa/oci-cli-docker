@@ -24,4 +24,6 @@ RUN set -ex \
     && rm oci-cli.zip \
     && pip install oci_cli-*-py2.py3-none-any.whl
 
+RUN yes | oci setup autocomplete
+
 ENTRYPOINT ["/usr/local/bin/oci"]
