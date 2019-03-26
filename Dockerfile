@@ -1,6 +1,6 @@
-FROM python:3.6.7-jessie
+FROM python:3.7.2-stretch
 
-ARG CLI_VERSION=2.5.2
+ARG CLI_VERSION=2.5.5
 ARG BUILD_DATE
 ARG VCS_REF
 
