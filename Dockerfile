@@ -1,17 +1,13 @@
 FROM python:3.7.2-stretch
 
 ARG CLI_VERSION=2.6.8
-ARG BUILD_DATE
-ARG VCS_REF
 
-LABEL maintainer="Jason Poon" \
+LABEL maintainer="ShotaKitazawa" \
       org.label-schema.schema-version="1.0" \
       org.label-schema.name="Oracle Cloud Infrastructure CLI" \
       org.label-schema.version=$CLI_VERSION \
-      org.label-schema.build-date=$BUILD_DATE \
-      org.label-schema.vcs-url="https://github.com/jpoon/oci-cli-docker.git" \
-      org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.docker.cmd="docker run -v \${HOME}/.oci:/root/.oci -it jpoon/oci-cli:$CLI_VERSION"
+      org.label-schema.vcs-url="https://github.com/ShotaKitazawa/oci-cli-docker.git" \
+      org.label-schema.docker.cmd="docker run -v \${HOME}/.oci:/root/.oci -it ShotaKitazawa/oci-cli:$CLI_VERSION"
 
 WORKDIR /oci-cli
 

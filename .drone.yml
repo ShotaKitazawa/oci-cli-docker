@@ -1,0 +1,28 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: git-commit-hash
+  image: alpine/git:1.0.7
+  commands:
+  - echo -n "$(git tag -l --points-at HEAD)" >> .tags
+  - echo -n "$(git rev-parse --short HEAD)" >> .tags
+  - echo -n "," >> .tags
+  - echo -n "latest" >> .tags
+
+- name: docker
+  image: plugins/docker
+  settings:
+    repo: docker.io/kanatakita/oci-cli
+    tags: latest
+    dockerfile: ./Dockerfile
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
